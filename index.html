@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <base target="_self">
     <meta charset="UTF-8">
@@ -8,69 +9,107 @@
     <meta name="description" content="Official wiki for The Boiled One Minecraft mod - an analog horror experience">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
     <style>
         @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                transform: translate(-2px, -2px);
+            }
+
+            60% {
+                transform: translate(2px, 2px);
+            }
+
+            80% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
         }
-        
+
         @keyframes static {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
+            0% {
+                background-position: 0% 0%;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
         }
-        
+
         @keyframes flicker {
-            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 72%, 100% {
+
+            0%,
+            19.999%,
+            22%,
+            62.999%,
+            64%,
+            64.999%,
+            72%,
+            100% {
                 opacity: 1;
             }
-            20%, 21.999%, 63%, 63.999%, 65%, 71.999% {
+
+            20%,
+            21.999%,
+            63%,
+            63.999%,
+            65%,
+            71.999% {
                 opacity: 0.4;
             }
         }
-        
+
         .glitch-text {
             animation: glitch 0.5s infinite;
             text-shadow: 2px 0 #ff0000, -2px 0 #00ffff;
         }
-        
+
         .static-bg {
-            background-image: 
+            background-image:
                 radial-gradient(circle at 10% 20%, rgba(255, 0, 0, 0.05) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 20%);
             background-size: 200px 200px;
             animation: static 20s linear infinite;
         }
-        
+
         .pixel-border {
             border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"><rect width="12" height="12" fill="none" stroke="%23ff0000" stroke-width="2" stroke-dasharray="2,2"/></svg>') 2 stretch;
         }
-        
+
         .minecraft-font {
             font-family: 'Press Start 2P', cursive;
         }
-        
+
         .analog-font {
             font-family: 'VT323', monospace;
         }
-        
+
         .typewriter-font {
             font-family: 'Share Tech Mono', monospace;
         }
-        
+
         .flicker {
             animation: flicker 3s infinite;
         }
-        
+
         .scanline {
             position: relative;
             overflow: hidden;
         }
-        
+
         .scanline::after {
             content: '';
             position: absolute;
@@ -81,54 +120,59 @@
             background: linear-gradient(to bottom, transparent, rgba(255, 0, 0, 0.3), transparent);
             animation: scan 8s linear infinite;
         }
-        
+
         @keyframes scan {
-            0% { top: 0%; }
-            100% { top: 100%; }
+            0% {
+                top: 0%;
+            }
+
+            100% {
+                top: 100%;
+            }
         }
-        
+
         .blood-btn {
             background: linear-gradient(to bottom, #8b0000, #660000);
             border: 2px solid #330000;
             box-shadow: 0 4px 0 #330000, 0 6px 10px rgba(255, 0, 0, 0.3);
             transition: all 0.1s ease;
         }
-        
+
         .blood-btn:hover {
             transform: translateY(2px);
             box-shadow: 0 2px 0 #330000, 0 4px 6px rgba(255, 0, 0, 0.5);
             background: linear-gradient(to bottom, #990000, #770000);
         }
-        
+
         .blood-btn:active {
             transform: translateY(4px);
             box-shadow: 0 0 0 #330000, 0 2px 4px rgba(255, 0, 0, 0.7);
         }
-        
+
         .card-hover {
             transition: all 0.3s ease;
             border: 1px solid #333;
         }
-        
+
         .card-hover:hover {
             border-color: #ff0000;
             box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
             transform: translateY(-5px);
         }
-        
+
         .form-input {
             background-color: #111;
             border: 1px solid #333;
             color: #f0f0f0;
             transition: all 0.3s ease;
         }
-        
+
         .form-input:focus {
             outline: none;
             border-color: #ff0000;
             box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
         }
-        
+
         .alert-box {
             position: fixed;
             top: 50%;
@@ -142,6 +186,7 @@
         }
     </style>
 </head>
+
 <body class="bg-black text-gray-100 min-h-screen static-bg typewriter-font">
     <!-- Navigation -->
     <header class="sticky top-0 z-50 bg-black border-b border-gray-900">
@@ -151,17 +196,17 @@
                     <span class="text-red-600">THE BOILED ONE</span> - WIKI/MOD
                 </h1>
             </div>
-            
+
             <div class="hidden md:flex space-x-6">
                 <ul id="nav-list" class="flex space-x-6"></ul>
             </div>
-            
+
             <!-- Mobile menu button -->
             <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </nav>
-        
+
         <!-- Mobile menu -->
         <div id="mobile-menu" class="md:hidden bg-gray-900 border-t border-gray-800 hidden">
             <ul id="mobile-nav-list" class="flex flex-col py-4"></ul>
@@ -174,22 +219,24 @@
             <div class="container mx-auto px-4 text-center">
                 <div class="mb-8">
                     <h2 class="minecraft-font text-3xl md:text-5xl text-white mb-4 glitch-text">
-                        PHEN-228 ACTIVATED
+                        PHEN-228 ATIVADO
                     </h2>
                     <p class="analog-font text-xl md:text-2xl text-gray-300 mb-6 max-w-3xl mx-auto">
-                        An analog horror experience within Minecraft
+                        Uma experiência de terror analógica dentro do Minecraft.
                     </p>
                 </div>
-                
+
                 <div class="max-w-4xl mx-auto">
-                    <img src="https://picsum.photos/800/400?random=1" alt="The Boiled One creature lurking in Minecraft world" class="w-full h-auto rounded-lg border-2 border-gray-800 mb-8">
-                    
+                    <img src="img/boiled.png" alt="The Boiled One creature lurking in Minecraft world"
+                        class="w-full h-auto rounded-lg border-2 border-gray-800 mb-8">
+
                     <div class="bg-gray-900 bg-opacity-70 border border-gray-800 p-6 rounded-lg">
                         <p class="text-lg text-gray-300 mb-4">
-                            <span class="text-red-500 font-bold">WARNING:</span> This mod transforms your Minecraft world into a psychological horror experience. Proceed with caution.
+                            <span class="text-red-500 font-bold">AVISO:</span> Este mod transforma seu mundo de
+                            Minecraft em uma experiência de terror psicológico. Prossiga com cautela.
                         </p>
                         <a href="#about" class="blood-btn inline-block px-8 py-3 rounded minecraft-font text-white">
-                            ENTER THE NIGHTMARE
+                            ENTRE NO PESADELO
                         </a>
                     </div>
                 </div>
@@ -201,40 +248,50 @@
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="minecraft-font text-3xl md:text-4xl text-white mb-4 glitch-text">
-                        ABOUT THE MOD
+                        SOBRE O MOD
                     </h2>
                     <div class="w-24 h-1 bg-red-600 mx-auto"></div>
                 </div>
-                
+
                 <div class="max-w-4xl mx-auto">
                     <div class="bg-gray-900 border border-gray-800 p-6 md:p-8 rounded-lg mb-8 card-hover">
+
                         <p class="text-gray-300 mb-4 text-lg">
-                            Based on the infamous analog horror creature from <span class="text-red-500 font-bold">Doctor Nowhere</span>, "The Boiled One" mod transforms Minecraft into a psychological terror experience.
+                            Baseado na infame criatura analógica de terror de Doctor Nowhere, o mod "The Boiled One"
+                            transforma Minecraft em uma experiência de terror psicológico.
+
+                            <span class="text-red-500 font-bold"></span>,O mod "The Boiled One" transforma Minecraft em
+                            uma experiência de terror psicológico.
                         </p>
                         <p class="text-gray-300 mb-4 text-lg">
-                            The entity <span class="text-red-500">Phen-228</span> invades your world, causing distorted TV transmissions, audio hallucinations, sleep paralysis, and environmental degradation.
+                            A entidade <span class="text-red-500">Phen-228</span> invade seu mundo, causando
+                            transmissões de TV distorcidas, alucinações auditivas, paralisia do sono e degradação
+                            ambiental.
                         </p>
                         <p class="text-gray-300 text-lg">
-                            This is not just another mob mod. It's an atmospheric overhaul that preys on your senses and sanity.
+                            Este não é apenas mais um mod de mobs. É uma reformulação atmosférica que explora seus
+                            sentidos e sua sanidade.
                         </p>
                     </div>
-                    
+
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg card-hover">
                             <h3 class="minecraft-font text-xl text-white mb-4 flex items-center">
-                                <i class="fas fa-tv text-red-500 mr-3"></i> DISTORTED TRANSMISSIONS
+                                <i class="fas fa-tv text-red-500 mr-3"></i> TRANSMISSÕES DISTORCIDAS
                             </h3>
                             <p class="text-gray-300">
-                                Random TV static and distorted broadcasts appear in your world, delivering cryptic messages from the entity.
+                                Estática de TV aleatória e transmissões distorcidas aparecem em seu mundo, trazendo
+                                mensagens enigmáticas da entidade.
                             </p>
                         </div>
-                        
+
                         <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg card-hover">
                             <h3 class="minecraft-font text-xl text-white mb-4 flex items-center">
-                                <i class="fas fa-brain text-red-500 mr-3"></i> PSYCHOLOGICAL EFFECTS
+                                <i class="fas fa-brain text-red-500 mr-3"></i> EFEITOS PSICOLÓGICOS
                             </h3>
                             <p class="text-gray-300">
-                                The entity causes audio hallucinations, visual distortions, and sleep paralysis when it's nearby.
+                                A entidade causa alucinações auditivas, distorções visuais e paralisia do sono quando
+                                está por perto.
                             </p>
                         </div>
                     </div>
@@ -247,11 +304,11 @@
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="minecraft-font text-3xl md:text-4xl text-white mb-4 glitch-text">
-                        CREATURES & ENTITIES
+                        CRIATURAS E ENTIDADES
                     </h2>
                     <div class="w-24 h-1 bg-red-600 mx-auto"></div>
                 </div>
-                
+
                 <div id="creatures-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
             </div>
         </section>
@@ -261,21 +318,21 @@
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="minecraft-font text-3xl md:text-4xl text-white mb-4 glitch-text">
-                        CLASSIFIED CURIOSITIES
+                        CURIOSIDADES CLASSIFICADAS
                     </h2>
                     <div class="w-24 h-1 bg-red-600 mx-auto"></div>
                     <p class="text-gray-400 max-w-2xl mx-auto mt-4">
-                        Restricted information recovered from corrupted files
+                        Informações restritas recuperadas de arquivos corrompidos
                     </p>
                 </div>
-                
+
                 <div class="max-w-4xl mx-auto">
                     <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg mb-8">
                         <div class="border-l-4 border-red-600 pl-4 mb-6">
-                            <h3 class="minecraft-font text-xl text-white mb-2">CONFIDENTIAL REPORT</h3>
-                            <p class="text-gray-400 text-sm">ACCESS LEVEL: PHEN-228 CLEARANCE REQUIRED</p>
+                            <h3 class="minecraft-font text-xl text-white mb-2">RELATÓRIO CONFIDENCIAL</h3>
+                            <p class="text-gray-400 text-sm">NÍVEL DE ACESSO: AUTORIZAÇÃO PHEN-228 NECESSÁRIA</p>
                         </div>
-                        
+
                         <ul id="curiosities-list" class="space-y-6"></ul>
                     </div>
                 </div>
@@ -287,56 +344,69 @@
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="minecraft-font text-3xl md:text-4xl text-white mb-4 glitch-text">
-                        GAMEPLAY MECHANICS
+                        GAMEPLAY
                     </h2>
                     <div class="w-24 h-1 bg-red-600 mx-auto"></div>
                 </div>
-                
+
                 <div class="max-w-4xl mx-auto">
                     <div class="bg-gray-900 border border-gray-800 p-6 md:p-8 rounded-lg mb-8">
-                        <h3 class="minecraft-font text-2xl text-white mb-6 text-center">SURVIVAL PROTOCOL</h3>
-                        
+                        <h3 class="minecraft-font text-2xl text-white mb-6 text-center">REGISTROS DE SOBREVIVENTES </h3>
+                        <iframe width="560" height="315" style="margin: auto;" src="https://www.youtube.com/embed/Sk1HDrjE2hM?si=fohlbJ81i6rs9UVh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share " referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <BR></BR>
+                        <h3 class="minecraft-font text-2xl text-white mb-6 text-center">PROTOCOLO DE SOBREVIVÊNCIA</h3>
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <div>
                                 <h4 class="minecraft-font text-xl text-red-500 mb-4 flex items-center">
-                                    <i class="fas fa-eye-slash mr-3"></i> AVOID DIRECT EYE CONTACT
+                                    <i class="fas fa-eye-slash mr-3"></i> EVITE O CONTATO DIRETO COM OS OLHOS
                                 </h4>
                                 <p class="text-gray-300 mb-6">
-                                    Looking directly at The Boiled One triggers immediate psychological effects. Keep your gaze averted and use peripheral vision to track its movements.
+                                    Olhar diretamente para O Cozido desencadeia efeitos psicológicos imediatos.
+                                    Mantenha o olhar desviado e use a visão periférica para acompanhar seus movimentos.
                                 </p>
-                                
+
                                 <h4 class="minecraft-font text-xl text-red-500 mb-4 flex items-center">
-                                    <i class="fas fa-volume-mute mr-3"></i> AUDIO DISTORTIONS
+                                    <i class="fas fa-volume-mute mr-3"></i> DISTORÇÕES DE ÁUDIO
                                 </h4>
                                 <p class="text-gray-300">
-                                    The entity manipulates game audio. Random whispers, reversed dialogue, and frequency shifts indicate its proximity. Use headphones for accurate tracking.
+                                    A entidade manipula o áudio do jogo. Sussurros aleatórios, diálogos invertidos e
+                                    mudanças de frequência
+
+                                    indicam sua proximidade. Use fones de ouvido para um rastreamento preciso.
                                 </p>
                             </div>
-                            
+
                             <div>
                                 <h4 class="minecraft-font text-xl text-red-500 mb-4 flex items-center">
-                                    <i class="fas fa-skull-crossbones mr-3"></i> STATUS EFFECTS
+                                    <i class="fas fa-skull-crossbones mr-3"></i> EFEITOS DE STATUS
                                 </h4>
                                 <ul class="text-gray-300 mb-6 space-y-2">
                                     <li class="flex items-start">
                                         <i class="fas fa-caret-right text-red-500 mr-2 mt-1"></i>
-                                        <span><span class="text-red-400">Paralysis:</span> Temporary inability to move or interact</span>
+                                        <span><span class="text-red-400">Paralisia:</span> Incapacidade temporária de se
+                                            mover ou interagir.
+                                        </span>
                                     </li>
                                     <li class="flex items-start">
                                         <i class="fas fa-caret-right text-red-500 mr-2 mt-1"></i>
-                                        <span><span class="text-red-400">Visual Static:</span> Screen distortion and image corruption</span>
+                                        <span><span class="text-red-400">Estática visual: distorção da tela e corrupção da imagem</span> 
+                                    </span>
                                     </li>
                                     <li class="flex items-start">
                                         <i class="fas fa-caret-right text-red-500 mr-2 mt-1"></i>
-                                        <span><span class="text-red-400">Environmental Decay:</span> Blocks deteriorate in the entity's presence</span>
+                                        <span><span class="text-red-400">Decadência Ambiental:</span>Os blocos se deterioram na presença da entidade.
+                                            </span>
                                     </li>
                                 </ul>
-                                
+
                                 <h4 class="minecraft-font text-xl text-red-500 mb-4 flex items-center">
-                                    <i class="fas fa-shield-alt mr-3"></i> DEFENSE MECHANISMS
+                                    <i class="fas fa-shield-alt mr-3"></i> MECANISMOS DE DEFESA
                                 </h4>
                                 <p class="text-gray-300">
-                                    Light sources provide temporary protection. Certain blocks and items can create "safe zones" that repel the entity for limited periods.
+                                    Fontes de luz fornecem proteção temporária. Certos blocos e itens podem criar
+
+"zonas seguras" que repelem a entidade por períodos limitados.
                                 </p>
                             </div>
                         </div>
@@ -350,52 +420,54 @@
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <h2 class="minecraft-font text-3xl md:text-4xl text-white mb-4 glitch-text">
-                        TRANSMISSION TERMINAL
+                        TERMINAL DE TRANSMISSÃO
                     </h2>
                     <div class="w-24 h-1 bg-red-600 mx-auto"></div>
                     <p class="text-gray-400 max-w-2xl mx-auto mt-4">
-                        Report sightings, bugs, or share your experiences with Phen-228
+                        Relate avistamentos, insetos ou compartilhe suas experiências com o Phen-228.
                     </p>
                 </div>
-                
+
                 <div class="max-w-2xl mx-auto">
                     <form id="contact-form" class="bg-gray-900 border border-gray-800 p-6 md:p-8 rounded-lg">
                         <div class="mb-6">
                             <label for="name" class="block text-gray-300 mb-2 minecraft-font">
-                                <i class="fas fa-user-secret text-red-500 mr-2"></i> CODENAME / NAME
+                                <i class="fas fa-user-secret text-red-500 mr-2"></i> NOME DE CÓDIGO / NOME
                             </label>
-                            <input type="text" id="name" name="name" required 
-                                   class="w-full px-4 py-3 form-input rounded minecraft-font text-sm">
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 form-input rounded minecraft-font text-sm">
                         </div>
-                        
+
                         <div class="mb-6">
                             <label for="email" class="block text-gray-300 mb-2 minecraft-font">
-                                <i class="fas fa-envelope text-red-500 mr-2"></i> TRANSMISSION FREQUENCY (EMAIL)
+                                <i class="fas fa-envelope text-red-500 mr-2"></i>FREQUÊNCIA DE TRANSMISSÃO (E-MAIL)
                             </label>
-                            <input type="email" id="email" name="email" required 
-                                   class="w-full px-4 py-3 form-input rounded minecraft-font text-sm">
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 form-input rounded minecraft-font text-sm">
                         </div>
-                        
+
                         <div class="mb-6">
                             <label for="subject" class="block text-gray-300 mb-2 minecraft-font">
-                                <i class="fas fa-tag text-red-500 mr-2"></i> TRANSMISSION TYPE
+                                <i class="fas fa-tag text-red-500 mr-2"></i> TIPO DE TRANSMISSÃO
                             </label>
-                            <select id="subject" name="subject" required 
-                                    class="w-full px-4 py-3 form-input rounded minecraft-font text-sm">
-                                <option value="" disabled selected>Select transmission type...</option>
+                            <select id="subject" name="subject" required
+                                class="w-full px-4 py-3 form-input rounded minecraft-font text-sm">
+                                <option value="" disabled selected>Selecione o tipo de transmissão...</option>
+
                             </select>
                         </div>
-                        
+
                         <div class="mb-8">
                             <label for="message" class="block text-gray-300 mb-2 minecraft-font">
-                                <i class="fas fa-file-alt text-red-500 mr-2"></i> MESSAGE CONTENT
+                                <i class="fas fa-file-alt text-red-500 mr-2"></i> CONTEÚDO DA MENSAGEM
                             </label>
-                            <textarea id="message" name="message" rows="6" required 
-                                      class="w-full px-4 py-3 form-input rounded minecraft-font text-sm"></textarea>
+                            <textarea id="message" name="message" rows="6" required
+                                class="w-full px-4 py-3 form-input rounded minecraft-font text-sm"></textarea>
                         </div>
-                        
+
                         <div class="text-center">
-                            <button type="submit" class="blood-btn px-10 py-4 rounded minecraft-font text-white text-lg">
+                            <button type="submit"
+                                class="blood-btn px-10 py-4 rounded minecraft-font text-white text-lg">
                                 <i class="fas fa-satellite-dish mr-2"></i> ENVIAR TRANSMISSÃO
                             </button>
                         </div>
@@ -412,7 +484,7 @@
                 <p class="text-gray-500 mb-4 analog-font text-lg">
                     "Mantenha seus olhos abertos. Transmissão encerrada."
                 </p>
-                
+
                 <div class="flex justify-center space-x-6 mb-6">
                     <a href="#" class="text-gray-500 hover:text-red-500 transition-colors">
                         <i class="fab fa-github text-xl"></i>
@@ -424,11 +496,11 @@
                         <i class="fab fa-curseforge text-xl"></i>
                     </a>
                 </div>
-                
+
                 <p class="text-gray-600 text-sm minecraft-font">
                     THE BOILED ONE MOD © 2023 | Created by Doctor Nowhere | Minecraft is a trademark of Mojang AB
                 </p>
-                
+
                 <div id="footer-links" class="mt-6 flex justify-center space-x-6"></div>
             </div>
         </div>
@@ -442,21 +514,21 @@
                 <h3 class="minecraft-font text-2xl text-white mb-2">TRANSMISSION SENT</h3>
                 <div class="w-16 h-1 bg-red-600 mx-auto mb-4"></div>
             </div>
-            
+
             <p class="text-gray-300 mb-6 analog-font text-lg">
                 Message successfully delivered to the archives.
             </p>
-            
+
             <p class="text-gray-400 mb-6 text-sm">
                 Your report has been logged. Expect a response within 24-48 hours.
             </p>
-            
+
             <button id="close-alert" class="blood-btn px-6 py-2 rounded minecraft-font text-white">
                 ACKNOWLEDGE
             </button>
         </div>
     </div>
-    
+
     <!-- Overlay for modal -->
     <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-80 z-40 hidden"></div>
 
@@ -472,52 +544,51 @@
         ];
 
         const creatures = [
-            { 
-                "title": "THE BOILED ONE (PHEN-228)", 
-                "img": "https://picsum.photos/400/300?random=2", 
+            {
+                "title": "THE BOILED ONE (PHEN-228)",
+                "img": "data:image/jpeg;base64,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",
                 "alt": "The Boiled One entity lurking in darkness",
                 "description": "The primary entity. Observes the player from a distance, causes sleep paralysis, and distorts game audio. Its presence is marked by TV static and visual distortions.",
                 "features": ["Sleep Paralysis", "Audio Distortion", "Environmental Decay", "TV Static Emissions"]
             },
-            { 
-                "title": "ALUCINAÇÕES / MANIFESTAÇÕES", 
-                "img": "https://picsum.photos/400/300?random=3", 
+            {
+                "title": "ALUCINAÇÕES / MANIFESTAÇÕES",
+                "img": "data:image/jpeg;base64,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",
                 "alt": "Distorted faces and hallucinations in dark corners",
-                "description": "Quick apparitions of distorted faces or silhouettes in dark corners of the map. These manifestations increase in frequency as your sanity decreases.",
-                "features": ["Visual Hallucinations", "Peripheral Apparitions", "Sanity-Based Frequency", "Ambient Sound Triggers"]
+                "description": "Aparições rápidas de rostos distorcidos ou silhuetas em cantos escuros do mapa. Essas manifestações aumentam em frequência à medida que sua sanidade diminui.",
+                "features": ["Alucinações visuais", "Aparições Periféricas", "Aparições Periféricas", "Gatilhos de som ambiente"]
             },
-            { 
-                "title": "CORRUPTED TRANSMISSIONS", 
-                "img": "https://picsum.photos/400/300?random=4", 
+            {
+                "title": "CORRUPTED TRANSMISSIONS",
+                "img": "img/giphy.gif",
                 "alt": "Corrupted TV transmission with distorted imagery",
-                "description": "Not a creature, but a phenomenon. Random TV screens appear showing distorted broadcasts with cryptic messages from the entity.",
-                "features": ["Random Spawning", "Cryptic Messages", "Temporary Sanity Drain", "Environmental Clues"]
+                "description": "Não se trata de uma criatura, mas sim de um fenômeno. Telas de TV aleatórias aparecem exibindo transmissões distorcidas com mensagens enigmáticas da entidade.",
+                "features": ["Geração Aleatória", "Mensagens enigmáticas", "Drenagem temporária de sanidade", "Pistas Ambientais"]
             }
         ];
 
         const curiosities = [
-            { 
-                "title": "INSPIRATION SOURCES", 
-                "content": "The mod draws heavily from analog horror series like Local 58, The Mandela Catalogue, and Gemini Home Entertainment. The visual style mimics VHS degradation and broadcast interference.",
+            {
+                "title": "FONTES DE INSPIRAÇÃO",
+                "content": "O mod se inspira fortemente em séries de terror analógicas como Local 58, The Mandela Catalogue e Gemini Home Entertainment. O estilo visual imita a degradação de fitas VHS e a interferência de transmissão.",
                 "icon": "fas fa-video"
             },
-            { 
-                "title": "HIDDEN AUDIO FILES", 
-                "content": "The mod contains 17 encrypted audio files that can only be accessed through specific in-game triggers. These files contain backwards messages and frequency-based puzzles.",
-                "icon": "fas fa-music"
+            {
+                "title": "ARQUIVOS DE ÁUDIO OCULTOS",
+                "content": "O mod contém 17 arquivos de áudio criptografados que só podem ser acessados ​​por meio de gatilhos específicos no jogo. Esses arquivos contêm mensagens invertidas e quebra-cabeças baseados em frequências."
             },
-            { 
-                "title": "SECRET MESSAGES", 
+            {
+                "title": "MENSAGENS SECRETAS",
                 "content": "During gameplay, ciphertext messages appear on screen. When decoded using a Caesar cipher with shift 13, they reveal lore about Phen-228's origin.",
                 "icon": "fas fa-key"
             },
-            { 
-                "title": "DEVELOPER EASTER EGGS", 
+            {
+                "title": "DEVELOPER EASTER EGGS",
                 "content": "The creator, Doctor Nowhere, has hidden 3 personal references in the mod's texture files. Finding all three unlocks a special 'developer commentary' mode.",
                 "icon": "fas fa-egg"
             },
-            { 
-                "title": "SANITY MECHANICS", 
+            {
+                "title": "SANITY MECHANICS",
                 "content": "There's a hidden sanity meter not shown in the UI. It affects hallucination frequency, audio distortion intensity, and how quickly The Boiled One can approach.",
                 "icon": "fas fa-brain"
             }
@@ -541,7 +612,7 @@
 
         // Reusable render functions
         function renderNavItems(items) {
-            return items.map(item => 
+            return items.map(item =>
                 `<li>
                     <a href="${item.href}" class="text-gray-300 hover:text-red-500 transition-colors minecraft-font text-sm flex items-center" data-nav-link>
                         <i class="${item.icon} mr-2"></i> ${item.label}
@@ -551,7 +622,7 @@
         }
 
         function renderCreatures(items) {
-            return items.map((item, index) => 
+            return items.map((item, index) =>
                 `<div class="bg-gray-900 border border-gray-800 rounded-lg overflow-hidden card-hover">
                     <div class="relative">
                         <img src="${item.img}" alt="${item.alt}" class="w-full h-48 object-cover" loading="lazy">
@@ -574,7 +645,7 @@
         }
 
         function renderCuriosities(items) {
-            return items.map(item => 
+            return items.map(item =>
                 `<li class="border-b border-gray-800 pb-6 last:border-0 last:pb-0">
                     <div class="flex items-start">
                         <div class="bg-gray-800 p-3 rounded mr-4">
@@ -590,60 +661,60 @@
         }
 
         function renderSubjectOptions(options) {
-            return options.map(option => 
+            return options.map(option =>
                 `<option value="${option.value}">${option.label}</option>`
             ).join("");
         }
 
         function renderFooterLinks(items) {
-            return items.map(item => 
+            return items.map(item =>
                 `<a href="${item.href}" class="text-gray-500 hover:text-red-500 transition-colors text-xs minecraft-font">${item.label}</a>`
             ).join("");
         }
 
         // Initialize page content
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Render navigation
             document.getElementById('nav-list').innerHTML = renderNavItems(navigationItems);
             document.getElementById('mobile-nav-list').innerHTML = renderNavItems(navigationItems);
-            
+
             // Render creatures
             document.getElementById('creatures-grid').innerHTML = renderCreatures(creatures);
-            
+
             // Render curiosities
             document.getElementById('curiosities-list').innerHTML = renderCuriosities(curiosities);
-            
+
             // Render subject options
-            document.getElementById('subject').innerHTML = 
-                '<option value="" disabled selected>Select transmission type...</option>' + 
+            document.getElementById('subject').innerHTML =
+                '<option value="" disabled selected>Select transmission type...</option>' +
                 renderSubjectOptions(subjectOptions);
-            
+
             // Render footer links
             document.getElementById('footer-links').innerHTML = renderFooterLinks(footerLinks);
-            
+
             // Mobile menu toggle
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            
-            mobileMenuBtn.addEventListener('click', function() {
+
+            mobileMenuBtn.addEventListener('click', function () {
                 mobileMenu.classList.toggle('hidden');
             });
-            
+
             // Smooth scrolling for navigation links
-            document.addEventListener('click', function(event) {
+            document.addEventListener('click', function (event) {
                 const link = event.target.closest('a[href^="#"]');
                 if (!link) return;
-                
+
                 const href = link.getAttribute('href');
                 if (href === '#') return;
-                
+
                 event.preventDefault();
-                
+
                 // Close mobile menu if open
                 if (!mobileMenu.classList.contains('hidden')) {
                     mobileMenu.classList.add('hidden');
                 }
-                
+
                 // Scroll to target
                 const target = document.querySelector(href);
                 if (target) {
@@ -653,57 +724,57 @@
                     });
                 }
             });
-            
+
             // Form submission
             const contactForm = document.getElementById('contact-form');
             const alertModal = document.getElementById('alert-modal');
             const modalOverlay = document.getElementById('modal-overlay');
             const closeAlertBtn = document.getElementById('close-alert');
-            
-            contactForm.addEventListener('submit', function(event) {
+
+            contactForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                
+
                 // Get form data
                 const formData = new FormData(contactForm);
                 const formObject = {};
                 formData.forEach((value, key) => {
                     formObject[key] = value;
                 });
-                
+
                 // In a real application, you would send this data to a server
                 console.log('Form submitted:', formObject);
-                
+
                 // Show success message
                 alertModal.classList.remove('hidden');
                 modalOverlay.classList.remove('hidden');
-                
+
                 // Reset form
                 contactForm.reset();
             });
-            
+
             // Close alert modal
-            closeAlertBtn.addEventListener('click', function() {
+            closeAlertBtn.addEventListener('click', function () {
                 alertModal.classList.add('hidden');
                 modalOverlay.classList.add('hidden');
             });
-            
-            modalOverlay.addEventListener('click', function() {
+
+            modalOverlay.addEventListener('click', function () {
                 alertModal.classList.add('hidden');
                 modalOverlay.classList.add('hidden');
             });
-            
+
             // Add glitch effect to titles on hover
             const glitchTitles = document.querySelectorAll('.glitch-text');
             glitchTitles.forEach(title => {
-                title.addEventListener('mouseenter', function() {
+                title.addEventListener('mouseenter', function () {
                     this.style.animation = 'glitch 0.3s infinite';
                 });
-                
-                title.addEventListener('mouseleave', function() {
+
+                title.addEventListener('mouseleave', function () {
                     this.style.animation = 'glitch 0.5s infinite';
                 });
             });
-            
+
             // Add random static effect to certain elements
             const staticElements = document.querySelectorAll('.static-bg');
             setInterval(() => {
@@ -716,4 +787,5 @@
         });
     </script>
 </body>
+
 </html>
